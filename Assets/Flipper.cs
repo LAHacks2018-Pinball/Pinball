@@ -13,8 +13,12 @@ public class Flipper : MonoBehaviour {
     JointMotor motor;
     JointSpring spring;
     KeyCode keycode;
+    bool touch_enabled;
+    float touch_x_min;
+    float touch_x_max;
+    float width;
 
-    GameObject ball_ref;
+    public GameObject ball_ref;
     Rigidbody ball_rb;
 
 	// Use this for initialization
@@ -25,16 +29,25 @@ public class Flipper : MonoBehaviour {
 
         //Component check so I don't have to make 4 different files controlling the flippers
         string name = ToString();
+
+        width = Screen.width;
         if (name.Contains("P1_Flipper_Left"))
         {
             keycode = KeyCode.Z;
+            touch_enabled = true;
+            touch_x_min = 0;
+            touch_x_max = width/2;
         }
         else if (name.Contains("P1_Flipper_Right"))
         {
             keycode = KeyCode.C;
+            touch_enabled = true;
+            touch_x_min = width/2;
+            touch_x_max = width;
         }
         else if (name.Contains("P2_Flipper_Left"))
         {
+            touch_enabled = false;
             keycode = KeyCode.J;
             float temp = rest_position;
             rest_position = pressed_position;
@@ -42,6 +55,7 @@ public class Flipper : MonoBehaviour {
         }
         else if (name.Contains("P2_Flipper_Right"))
         {
+            touch_enabled = false;
             keycode = KeyCode.L;
             float temp = rest_position;
             rest_position = pressed_position;
@@ -67,12 +81,36 @@ public class Flipper : MonoBehaviour {
         //For testing on computer
         if (Input.GetKeyDown(keycode))
         {
+            
             flip(true);
             ball_rb.isKinematic = false;
         }
         if (Input.GetKeyUp(keycode))
         {
             flip(false);
+        }
+        if (Input.touchCount > 0)
+        {
+            for(int i = 0; i < Input.touchCount; i++)
+            {
+                Touch touch = Input.GetTouch(i);
+                float x = touch.position.x;
+
+                if (touch.position.x > touch_x_min && touch.position.x > touch_x_max)
+                {
+                    if(touch.phase == TouchPhase.Began)
+                    {
+                        flip(true);
+                        ball_rb.isKinematic = false;
+                    }
+                    else if(touch.phase == TouchPhase.Ended)
+                    {
+                        flip(false);
+                    }
+                    
+                }
+            }
+            
         }
 
         spring = hinge.spring;
