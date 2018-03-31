@@ -19,6 +19,7 @@ public class Flipper : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        print("flip");
         ball_ref = GameObject.Find("Sphere");
         ball_rb = ball_ref.GetComponent<Rigidbody>();
 

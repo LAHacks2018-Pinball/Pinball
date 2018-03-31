@@ -407,7 +407,7 @@ HingeJoint:
   m_Anchor: {x: -0.4, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.38, y: 0, z: 11.7}
+  m_ConnectedAnchor: {x: -3.685, y: 0, z: 11.47}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 943997063}
   - component: {fileID: 943997062}
   m_Layer: 8
-  m_Name: Sphere (1)
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1528,7 +1528,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1300204963}
   m_LocalRotation: {x: 0.70994484, y: -0.000000016763257, z: -0.000000032201918, w: 0.70425737}
-  m_LocalPosition: {x: -0.7, y: 25.9, z: -0.64}
+  m_LocalPosition: {x: -0.073, y: 25.9, z: -0.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1660,7 +1660,7 @@ HingeJoint:
   m_Anchor: {x: 0.4, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.38, y: 0, z: -11.7}
+  m_ConnectedAnchor: {x: 3.685, y: 0, z: -11.47}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2147,7 +2147,7 @@ HingeJoint:
   m_Anchor: {x: -0.4, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.38, y: 0, z: -11.7}
+  m_ConnectedAnchor: {x: -3.685, y: 0, z: -11.47}
   m_UseSpring: 1
   m_Spring:
     spring: 0
