@@ -5,7 +5,8 @@ using UnityEngine;
 public class BallCollision : MonoBehaviour {
 
     Rigidbody rb;
-    float gravity = -1000.0F;
+    Vector3 gravity = new Vector3(0, -9.81F, -15);
+    Vector3 neg_gravity = new Vector3(0, -9.81F, 15);
     float contact_impulse = 20F;
     float startY = 0.2F;
     float startZ = 4.0F;
@@ -22,13 +23,21 @@ public class BallCollision : MonoBehaviour {
         deadZoneNeg = deadZone * -1;
 
         rb = GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(10, 0, 0);
+        rb.isKinematic = true;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(rb.position.z <= 0)
+        {
+            Physics.gravity = gravity;
+        }
+        else
+        {
+            //go the opposite way
+            Physics.gravity = neg_gravity;
+        }
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -51,6 +60,7 @@ public class BallCollision : MonoBehaviour {
         {
             rb.position = newStart();
             rb.velocity = new Vector3();
+            rb.isKinematic = true;
         }
 
     }

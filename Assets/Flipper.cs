@@ -14,27 +14,37 @@ public class Flipper : MonoBehaviour {
     JointSpring spring;
     KeyCode keycode;
 
+    GameObject ball_ref;
+    Rigidbody ball_rb;
+
 	// Use this for initialization
 	void Start () {
-
+        ball_ref = GameObject.Find("Sphere");
+        ball_rb = ball_ref.GetComponent<Rigidbody>();
 
         //Component check so I don't have to make 4 different files controlling the flippers
         string name = ToString();
-        if (name == "P1_Flipper_Left (Flipper)")
+        if (name.Contains("P1_Flipper_Left"))
         {
             keycode = KeyCode.Z;
         }
-        else if (name == "P1_Flipper_Right (Flipper)")
+        else if (name.Contains("P1_Flipper_Right"))
         {
             keycode = KeyCode.C;
         }
-        else if (name == "P2_Flipper_Left (Flipper)")
+        else if (name.Contains("P2_Flipper_Left"))
         {
             keycode = KeyCode.J;
+            float temp = rest_position;
+            rest_position = pressed_position;
+            pressed_position = temp;
         }
-        else if (name == "P2_Flipper_Right (Flipper)")
+        else if (name.Contains("P2_Flipper_Right"))
         {
             keycode = KeyCode.L;
+            float temp = rest_position;
+            rest_position = pressed_position;
+            pressed_position = temp;
         }
         else
         {
@@ -57,6 +67,7 @@ public class Flipper : MonoBehaviour {
         if (Input.GetKeyDown(keycode))
         {
             flip(true);
+            ball_rb.isKinematic = false;
         }
         if (Input.GetKeyUp(keycode))
         {
