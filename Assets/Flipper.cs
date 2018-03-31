@@ -70,13 +70,13 @@ public class Flipper : MonoBehaviour {
 
         if (should_flip)
         {
-            //spring.targetPosition = pressed_position;
-            spring.targetPosition = rest_position;
+            spring.targetPosition = pressed_position;
+            //spring.targetPosition = rest_position;
         }
         else
         {
-            //spring.targetPosition = rest_position;
-            spring.targetPosition = pressed_position;
+            spring.targetPosition = rest_position;
+            //spring.targetPosition = pressed_position;
         }
         hinge.spring = spring;
         

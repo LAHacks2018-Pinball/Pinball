@@ -7,8 +7,8 @@ public class Flipper2 : MonoBehaviour
 
     float spring_force = 10000;
     float spring_damper = 150;
-    float rest_position = 32f;
-    float pressed_position = -50f;
+    float rest_position = -32f;
+    float pressed_position = 50f;
     bool should_flip = false;
     HingeJoint hinge;
     JointSpring spring;
