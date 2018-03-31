@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Flipper : MonoBehaviour {
 
-    float motor_force = 1000;
-    float target_velocity = 1000;
+    float spring_force = 10000;
+    float spring_damper = 150;
+    float rest_position = -32f;
+    float pressed_position = 50f;
     bool should_flip = false;
     HingeJoint hinge;
+    JointMotor motor;
+    JointSpring spring;
     KeyCode keycode;
 
 	// Use this for initialization
 	void Start () {
+
+
         //Component check so I don't have to make 4 different files controlling the flippers
         string name = ToString();
-        print(name);
         if (name == "P1_Flipper_Left (Flipper)")
         {
             keycode = KeyCode.Z;
@@ -39,12 +44,11 @@ public class Flipper : MonoBehaviour {
 
 
         hinge = GetComponent<HingeJoint>();
-        JointMotor motor = hinge.motor;
-        motor.force = motor_force;
-        motor.targetVelocity = target_velocity;
-        motor.freeSpin = false;
-        hinge.motor = motor;
-        hinge.useMotor = false;
+        spring = hinge.spring;
+        spring.spring = spring_force;
+        spring.damper = spring_damper;
+        hinge.spring = spring;
+        hinge.useSpring = true;
     }
 	
 	// Update is called once per frame
@@ -59,7 +63,21 @@ public class Flipper : MonoBehaviour {
             flip(false);
         }
 
-        hinge.useMotor = should_flip;
+        spring = hinge.spring;
+        spring.spring = spring_force;
+        spring.damper = spring_damper;
+        
+
+        if (should_flip)
+        {
+            spring.targetPosition = pressed_position;
+        }
+        else
+        {
+            spring.targetPosition = rest_position;
+        }
+        hinge.spring = spring;
+        
 	}
 
     void flip(bool flip_flag)
