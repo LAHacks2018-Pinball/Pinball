@@ -14,4 +14,6 @@ public class Points : MonoBehaviour {
 		return points;
 	}
 	
+	public string stringToEdit = "Score";
+
 }
