@@ -57,6 +57,7 @@
      <Compile Include="Assets\Gravity.cs" />
      <Compile Include="Assets\PlaneMeshEdit.cs" />
      <Compile Include="Assets\Points.cs" />
+     <Compile Include="Assets\ScoreText.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

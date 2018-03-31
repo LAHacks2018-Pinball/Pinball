@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Points : MonoBehaviour {
 
-	private float points = 0;
+	private static float points = 0;
 
 	public void updatePoints(){
 		points += 10;
@@ -13,7 +13,5 @@ public class Points : MonoBehaviour {
 	public float getPoints() {
 		return points;
 	}
-	
-	public string stringToEdit = "Score";
 
 }
