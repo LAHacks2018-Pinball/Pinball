@@ -19,7 +19,7 @@ public class Flipper : MonoBehaviour {
     float width;
 
     public GameObject ball_ref;
-    Rigidbody ball_rb;
+    Rigidbody ball_rb; 
 
 	// Use this for initialization
 	void Start () {
@@ -78,6 +78,24 @@ public class Flipper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(width != Screen.width)
+        {
+            width = Screen.width;
+            string name = ToString();
+            if (name.Contains("P1_Flipper_Left"))
+            {
+                touch_enabled = true;
+                touch_x_min = 0;
+                touch_x_max = width / 2;
+            }
+            else if (name.Contains("P1_Flipper_Right"))
+            {
+                touch_enabled = true;
+                touch_x_min = width / 2;
+                touch_x_max = width;
+            }
+        }
+        
         //For testing on computer
         if (Input.GetKeyDown(keycode))
         {
@@ -96,7 +114,7 @@ public class Flipper : MonoBehaviour {
                 Touch touch = Input.GetTouch(i);
                 float x = touch.position.x;
 
-                if (touch.position.x > touch_x_min && touch.position.x > touch_x_max)
+                if (touch.position.x >= touch_x_min && touch.position.x >= touch_x_max)
                 {
                     if(touch.phase == TouchPhase.Began)
                     {
