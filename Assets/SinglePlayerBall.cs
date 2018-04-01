@@ -26,6 +26,7 @@ public class SinglePlayerBall : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
+		Physics.gravity = gravity;
 
     }
 

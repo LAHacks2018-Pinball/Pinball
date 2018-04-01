@@ -45,7 +45,7 @@ public class Flipper : MonoBehaviour {
 			print ("entered in");
             keycode = KeyCode.C;
             touch_enabled = true;
-            touch_x_min = width/2;
+			touch_x_min = width/2;
             touch_x_max = width;
         }
         else if (name.Contains("P2_Flipper_Left"))

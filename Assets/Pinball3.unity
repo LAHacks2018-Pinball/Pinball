@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -454,8 +454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c5183b8068b49c78f3908d2afbf645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textfield: {fileID: 515736443}
-  pt: {fileID: 515736446}
+  textfield: {fileID: 0}
+  pt: {fileID: 0}
 --- !u!114 &515736446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,6 +900,8 @@ GameObject:
   - component: {fileID: 1225296968}
   - component: {fileID: 1225296967}
   - component: {fileID: 1225296966}
+  - component: {fileID: 1225296971}
+  - component: {fileID: 1225296970}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -971,6 +973,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
+--- !u!114 &1225296970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225296965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961e52c3648614224b2a9dffa3055c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedCamera: {fileID: 1225296968}
+--- !u!114 &1225296971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225296965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462d46d2423bb4f738d2497a397b1590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_camera: {fileID: 1225296968}
+  startAlignment: 0
+  planeDetection: 1
+  getPointCloud: 1
+  enableLightEstimation: 1
 --- !u!1 &1236545081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1750,7 @@ GameObject:
   - component: {fileID: 1748676683}
   - component: {fileID: 1748676682}
   - component: {fileID: 1748676681}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: P1_Flipper_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1779,7 @@ HingeJoint:
   m_Anchor: {x: -0.4, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.2600002, y: 0, z: -6.94}
+  m_ConnectedAnchor: {x: -3.1399999, y: 0.19, z: -7.05}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -1953,7 +1983,7 @@ GameObject:
   - component: {fileID: 1954116447}
   - component: {fileID: 1954116446}
   - component: {fileID: 1954116445}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: P1_Flipper_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +2012,7 @@ HingeJoint:
   m_Anchor: {x: 0.4, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.1399999, y: 0, z: -7.05}
+  m_ConnectedAnchor: {x: 3.1399999, y: 0.19, z: -7.05}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2102,7 +2132,7 @@ GameObject:
   - component: {fileID: 1984040550}
   - component: {fileID: 1984040556}
   - component: {fileID: 1984040551}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2212,8 +2242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83ea3e0b56da4a868d7bfbc3cd24010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pt: {fileID: 1984040557}
-  rb: {fileID: 1984040550}
+  pt: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &1984040557
 MonoBehaviour:
   m_ObjectHideFlags: 0
