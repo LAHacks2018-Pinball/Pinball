@@ -5,8 +5,8 @@ using UnityEngine;
 public class BallCollision : MonoBehaviour {
 
     Rigidbody rb;
-    Vector3 gravity = new Vector3(0, -1.2F, -15);
-    Vector3 neg_gravity = new Vector3(0, -9.81F, 15);
+    Vector3 gravity = new Vector3(0, -1.2F, -10);
+    Vector3 neg_gravity = new Vector3(0, -9.81F, 10);
     float contact_impulse = 20F;
     float startY = 0.2F;
     float startZ = 4.0F;

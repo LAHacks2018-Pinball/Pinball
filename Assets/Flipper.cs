@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flipper : MonoBehaviour {
 
-    float spring_force = 13000;
+    float spring_force = 11000;
     float spring_damper = 180;
     float rest_position = -32f;
     float pressed_position = 50f;
