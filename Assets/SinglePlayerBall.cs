@@ -6,12 +6,13 @@ public class SinglePlayerBall : MonoBehaviour
 {
 
     Rigidbody rb;
-    Vector3 gravity = new Vector3(0, -9.81F, -15);
-    Vector3 neg_gravity = new Vector3(0, -9.81F, 15);
+    Vector3 gravity = new Vector3(0, -9.81F, -13);
+    Vector3 neg_gravity = new Vector3(0, -9.81F, 13);
     float contact_impulse = 20F;
-    float startY = 0.2F;
-    float startZ = 4.0F;
-    float maxX = 3.0F;
+	float startX = .25F;
+    float startY = -.5F;
+    float startZ = 2F;
+    float maxX = 1F;
     float lengthX = 6.0F;       //The amount X can be below the max X value; (-3, 3) range in this case
     float deadZone = 1;
     float deadZoneNeg;
@@ -26,6 +27,7 @@ public class SinglePlayerBall : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
+		Physics.gravity = gravity;
 
     }
 
@@ -72,11 +74,11 @@ public class SinglePlayerBall : MonoBehaviour
 
     private Vector3 newStart()
     {
-        float startX = 0;
-        while (startX < deadZone && startX > deadZoneNeg)
-        {
-            startX = maxX - Random.value * lengthX;
-        }
+        //float startX = 0;
+        //while (startX < deadZone && startX > deadZoneNeg)
+        //{
+        //    startX = maxX - Random.value * lengthX;
+        //}
 
 
         return new Vector3(startX, startY, startZ);

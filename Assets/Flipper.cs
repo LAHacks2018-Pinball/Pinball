@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Flipper : MonoBehaviour {
 
-    float spring_force = 10000;
-    float spring_damper = 150;
+    float spring_force = 13000;
+    float spring_damper = 180;
     float rest_position = -32f;
     float pressed_position = 50f;
     bool should_flip = false;
@@ -25,7 +25,7 @@ public class Flipper : MonoBehaviour {
 	void Start () {
         print("flip");
 		print ("dfsdfdsfs");
-        ball_ref = GameObject.Find("Sphere");
+        //ball_ref = GameObject.Find("Sphere");
         ball_rb = ball_ref.GetComponent<Rigidbody>();
 
         //Component check so I don't have to make 4 different files controlling the flippers

@@ -12,8 +12,8 @@ public class CollisionDetection : MonoBehaviour {
 			Debug.Log (pt.getPoints ());
 		}
 
-        float contact_impulse = 17F;
-        float contact_impulse_wall = 7F;
+        float contact_impulse = 4F;
+        float contact_impulse_wall = 2.5F;
 
         if (col.collider.tag == "Target" || col.collider.tag == "Wall"){
             ContactPoint contact = col.contacts[0];
