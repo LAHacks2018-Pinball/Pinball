@@ -24,6 +24,7 @@ public class Flipper : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         print("flip");
+		print ("dfsdfdsfs");
         ball_ref = GameObject.Find("Sphere");
         ball_rb = ball_ref.GetComponent<Rigidbody>();
 
@@ -33,13 +34,15 @@ public class Flipper : MonoBehaviour {
         width = Screen.width;
         if (name.Contains("P1_Flipper_Left"))
         {
-            keycode = KeyCode.Z;
+			print ("debug");
+			keycode = KeyCode.C;
             touch_enabled = true;
             touch_x_min = 0;
             touch_x_max = width/2;
         }
-        else if (name.Contains("P1_Flipper_Right"))
+        if (name.Contains("P1_Flipper_Right"))
         {
+			print ("entered in");
             keycode = KeyCode.C;
             touch_enabled = true;
             touch_x_min = width/2;
@@ -91,7 +94,7 @@ public class Flipper : MonoBehaviour {
             else if (name.Contains("P1_Flipper_Right"))
             {
                 touch_enabled = true;
-                touch_x_min = width / 2;
+				touch_x_min = (width / 2) + 1;
                 touch_x_max = width;
             }
         }
@@ -102,11 +105,12 @@ public class Flipper : MonoBehaviour {
             
             flip(true);
             ball_rb.isKinematic = false;
-        }
+        }/*
         if (Input.GetKeyUp(keycode))
         {
             flip(false);
         }
+        */
         if (Input.touchCount > 0)
         {
             for(int i = 0; i < Input.touchCount; i++)
@@ -114,7 +118,7 @@ public class Flipper : MonoBehaviour {
                 Touch touch = Input.GetTouch(i);
                 float x = touch.position.x;
 
-                if (touch.position.x >= touch_x_min && touch.position.x >= touch_x_max)
+                if (touch.position.x >= touch_x_min && touch.position.x <= touch_x_max)
                 {
                     if(touch.phase == TouchPhase.Began)
                     {
